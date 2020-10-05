@@ -1,17 +1,67 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <h4>Activity</h4>
+      </ion-col>
+      <ion-col size="6">
+        <h6>Today, 2 October 2020</h6>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-slides mode="ios" [options]="sliderInfo" class="ion-padding">
+    <ion-slide>
+      <div class="card-info">
+        <h6>Results of the week</h6>
+        <div class="flex-row">
+          <div class="column">
+            <small>You have lost</small>
+              <ion-text color="primary">
+                <h5>-4Kg</h5>
+              </ion-text>
+          </div>
+          <div class="column">
+            <small>You level up</small>
+              <ion-text color="primary">
+                <h5>Level 8</h5>
+              </ion-text>
+          </div>
+          <div class="column">
+            <circle-progress slot="end" [percent]="85" [radius]="25" [outerStrokeWidth]="4" [innerStrokeWidth]="0"
+                [outerStrokeColor]="'#10dc60'" [innerStrokeColor]="'none'" [animation]="true" [animationDuration]="300"
+                [showSubtitle]="false" [titleFontSize]="18" units="Kcal">
+              </circle-progress>
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-grid class="grid-food-type">
+    <ion-row>
+      <ion-col size="4" class="active">
+        <h6>Breakfast</h6>
+      </ion-col>
+      <ion-col size="4">
+        <h6>Foods</h6>
+      </ion-col>
+      <ion-col size="4">
+        <h6>Dinner</h6>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-slides mode="ios" [options]="sliderFood" class="food-slider">
+    <ion-slide *ngFor="let card of cards">
+      <div class="card-food">
+        <img [src]="card.img">
+      </div>
+      <div>
+        <h4>{{ card.title }}</h4>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
 </ion-content>
